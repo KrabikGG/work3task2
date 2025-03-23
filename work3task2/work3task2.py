@@ -1,8 +1,15 @@
-word1 = input("Введіть перше слово: ")
-word2 = input("Введіть друге слово: ")
+word = input("Введіть слово: ")
 
-if word1 == word2:
-    print("Слова однакові")
+duplicates = set()
+seen = set()
+
+for letter in word:
+    if letter in seen:
+        duplicates.add(letter)
+    else:
+        seen.add(letter)
+
+if duplicates:
+    print("Повторювані літери:", ", ".join(sorted(duplicates)))
 else:
-    print("Слова різні")
-
+    print("У слові немає повторюваних літер.")
